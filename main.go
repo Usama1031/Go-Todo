@@ -24,10 +24,10 @@ var db *mongo.Database
 
 const (
 	// Replace this with your MongoDB Atlas connection string
-	uri            string = "mongodb+srv://name:password@gotesting.9nowg.mongodb.net/?retryWrites=true&w=majority&appName=GoTesting"
+	uri            string = "mongodb+srv://Usama:usama1031@gotesting.9nowg.mongodb.net/?retryWrites=true&w=majority&appName=GoTesting"
 	dbName         string = "demo_todo"
 	collectionName string = "todo"
-	port           string = ":7000"
+	port           string = ":9010"
 )
 
 type (
@@ -217,6 +217,8 @@ func updateTodo(w http.ResponseWriter, r *http.Request) {
 func main() {
 	stopChan := make(chan os.Signal)
 	signal.Notify(stopChan, os.Interrupt)
+
+	rnd = renderer.New(renderer.Options{ParseGlobPattern: "static/*.tpl"})
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
